@@ -1,7 +1,9 @@
-import React from 'react';  //You always need to import React, even if you're not explicitly calling it.
+//You always need to import React, even if you're not explicitly calling it.
+
+import React, { Component } from 'react';  //import React.Component as Component (ES6 destructuring)
 
 //ES6 class:
-class SearchBar extends React.Component {  //extends functionality of React Component
+class SearchBar extends Component {  //extends functionality of React Component
 	render() { //how you define methods on ES6 classes; all React Components must have render method
 		return <input />;
 	}
