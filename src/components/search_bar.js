@@ -3,14 +3,30 @@
 import React, { Component } from 'react';  //import React.Component as Component (ES6 destructuring)
 
 //ES6 class:
-class SearchBar extends Component {  //extends functionality of React Component
-	render() { //how you define methods on ES6 classes; all React Components must have render method
-		// onChange is available on all elements; {} evaluates the JS inside the HTML
-		return <input onChange={event => console.log(event.target.value)} />;
-	}
+//extends functionality of React Component
+class SearchBar extends Component {  
+	//basically calling the constructor of the class while inheriting from the parent class.
+	constructor(props) {
+		super(props);
 
-	onInputChange(event) {  //convention is either onElementChange or handleElementChange
-		console.log(event.target.value)
+		//how you instantiate state in a React component (only time we treat state like this!)
+		this.state = {term: 'Testing'};
+	}
+	//how you define methods on ES6 classes; all React Components must have render method
+	render() { 
+		// onChange is available on all elements; {} evaluates the JS inside the HTML
+		return (
+			<div>
+				Value of input: {this.state.term}
+				<br/>
+				<input onChange={this.onInputChange.bind(this)} value={this.state.term} />
+			</div>
+			)
+	}
+	
+	//convention is either onElementChange or handleElementChange
+	onInputChange(event) {
+		this.setState({term: event.target.value});
 	}
 }
 
