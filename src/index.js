@@ -2,8 +2,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import {API_KEY} from './API_KEY';
+
+console.log(API_KEY);
+
 const App = () => {
-	return <div>Hi!</div>
+	return <div>Hello world!!</div>
 }
 
 // Put the component into the DOM: first arg is the React Component (<Component />)
