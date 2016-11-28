@@ -2,9 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import {API_KEY} from './API_KEY';
-
-console.log(API_KEY);
+import {API_KEY} from './API_KEY';  //hidden because of Gitignore
 
 const App = () => {
 	return <div>Hello world!!</div>
