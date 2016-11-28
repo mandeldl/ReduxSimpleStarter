@@ -5,7 +5,12 @@ import React, { Component } from 'react';  //import React.Component as Component
 //ES6 class:
 class SearchBar extends Component {  //extends functionality of React Component
 	render() { //how you define methods on ES6 classes; all React Components must have render method
-		return <input />;
+		// onChange is available on all elements; {} evaluates the JS inside the HTML
+		return <input onChange={this.onInputChange} />;
+	}
+
+	onInputChange(event) {  //convention is either onElementChange or handleElementChange
+		console.log(event.target.value)
 	}
 }
 
