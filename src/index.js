@@ -5,6 +5,7 @@ import YTSearch from 'youtube-api-search';
 
 //Components:
 import SearchBar from './components/search_bar';  //Note relative paths, .js extension isn't necessary
+import VideoList from './components/video_list';
 
 //Special API Key for YouTube, hidden because of Gitignore
 import {API_KEY} from './API_KEY';  
@@ -24,7 +25,8 @@ class App extends Component {
 	render() {
 		return (
 			<div>
-				<SearchBar />  
+				<SearchBar />
+				<VideoList videos={this.state.videos} />
 			</div>
 			)
 		//You can include components inside others, usually use () for multi-line HTML.
