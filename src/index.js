@@ -1,5 +1,5 @@
 // Create new component, produce some html
-import React from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
 
@@ -9,18 +9,26 @@ import SearchBar from './components/search_bar';  //Note relative paths, .js ext
 //Special API Key for YouTube, hidden because of Gitignore
 import {API_KEY} from './API_KEY';  
 
-//YTSearch takes an object that uses the api key and a search term, 2nd param is callback function for data.
-YTSearch({key: API_KEY, term: 'surfboards'}, function(data) {
-	console.log(data);
-});
+class App extends Component {
+	constructor(props) {
+		super(props);
 
-const App = () => {
-	return (
+		this.state = { videos: [] };
+
+		//YTSearch takes an object that uses the api key and a search term, 2nd param is callback function for data.
+		YTSearch({key: API_KEY, term: 'surfboards'}, data => {
+			this.setState({ videos: data });
+		});
+	}
+
+	render() {
+		return (
 			<div>
 				<SearchBar />  
 			</div>
 			)
 		//You can include components inside others, usually use () for multi-line HTML.
+	}
 }
 
 // Put the component into the DOM: first arg is the React Component (<Component />)
