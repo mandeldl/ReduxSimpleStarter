@@ -16,8 +16,8 @@ class App extends Component {
 		this.state = { videos: [] };
 
 		//YTSearch takes an object that uses the api key and a search term, 2nd param is callback function for data.
-		YTSearch({key: API_KEY, term: 'surfboards'}, data => {
-			this.setState({ videos: data });
+		YTSearch({key: API_KEY, term: 'surfboards'}, videos => { 
+			this.setState({ videos }); //cool shortcut when key-value pair are the same word!
 		});
 	}
 
