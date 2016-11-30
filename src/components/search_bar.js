@@ -16,9 +16,7 @@ class SearchBar extends Component {
 	render() { 
 		// onChange is available on all elements; {} evaluates the JS inside the HTML
 		return (
-			<div>
-				Value of input: {this.state.term}
-				<br/>
+			<div className="search-bar">
 				<input onChange={this.onInputChange.bind(this)} value={this.state.term} />
 			</div>
 			)
