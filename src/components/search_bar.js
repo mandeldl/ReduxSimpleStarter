@@ -10,7 +10,7 @@ class SearchBar extends Component {
 		super(props);
 
 		//how you instantiate state in a React component (only time we treat state like this!)
-		this.state = {term: 'Testing'};
+		this.state = {term: ''};
 	}
 	//how you define methods on ES6 classes; all React Components must have render method
 	render() { 
