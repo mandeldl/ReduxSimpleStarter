@@ -20,8 +20,13 @@ class App extends Component {
 			selectedVideo: null
 		};
 
+		this.videoSearch('pokemon');
+	}
+
+	//separate method for searching for videos
+	videoSearch(term) {
 		//YTSearch takes an object that uses the api key and a search term, 2nd param is callback function for data.
-		YTSearch({key: API_KEY, term: 'surfboards'}, videos => { 
+		YTSearch({key: API_KEY, term: term}, videos => { 
 			this.setState({ 
 				videos: videos,
 				selectedVideo: videos[0]
@@ -32,7 +37,7 @@ class App extends Component {
 	render() {
 		return (
 			<div>
-				<SearchBar />
+				<SearchBar onSearchTermChange={term=>this.videoSearch(term)} />
 				<VideoDetail video={this.state.selectedVideo}/>
 				<VideoList 
 					onVideoSelect={ selectedVideo => this.setState({selectedVideo}) }  //function to set the video, passing down to videoList

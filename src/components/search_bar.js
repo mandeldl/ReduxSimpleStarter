@@ -17,14 +17,15 @@ class SearchBar extends Component {
 		// onChange is available on all elements; {} evaluates the JS inside the HTML
 		return (
 			<div className="search-bar">
-				<input onChange={this.onInputChange.bind(this)} value={this.state.term} />
+				<input onChange={event => this.onInputChange(event.target.value)} value={this.state.term} />
 			</div>
 			)
 	}
 	
 	//convention is either onElementChange or handleElementChange
-	onInputChange(event) {
-		this.setState({term: event.target.value});
+	onInputChange(term) {
+		this.setState({term});
+		this.props.onSearchTermChange(term);
 	}
 }
 
