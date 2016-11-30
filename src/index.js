@@ -15,11 +15,17 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = { videos: [] };
+		this.state = { 
+			videos: [],
+			selectedVideo: null
+		};
 
 		//YTSearch takes an object that uses the api key and a search term, 2nd param is callback function for data.
 		YTSearch({key: API_KEY, term: 'surfboards'}, videos => { 
-			this.setState({ videos }); //cool shortcut when key-value pair are the same word!
+			this.setState({ 
+				videos: videos,
+				selectedVideo: videos[0]
+			}); 
 		});
 	}
 
@@ -27,8 +33,10 @@ class App extends Component {
 		return (
 			<div>
 				<SearchBar />
-				<VideoDetail video={this.state.videos[0]}/>
-				<VideoList videos={this.state.videos} />
+				<VideoDetail video={this.state.selectedVideo}/>
+				<VideoList 
+					onVideoSelect={ selectedVideo => this.setState({selectedVideo}) }  //function to set the video, passing down to videoList
+					videos={this.state.videos} />
 			</div>
 			)
 		//You can include components inside others, usually use () for multi-line HTML.
